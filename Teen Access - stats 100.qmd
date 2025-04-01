@@ -6,7 +6,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r}
 
 # Purpose: Acquire, simulate and analyze data of teen access to tobacco products over the past 50 years and the repruccisons for selling these products to those under the MLSA
@@ -38,7 +37,6 @@ library(RColorBrewer)
 
 ```
 
- 
 ```{r}
 simulated_data <-
   tibble( 
@@ -53,6 +51,54 @@ simulated_data <-
   
 ```
 
+make simulated_data into bar graph containing State, MLSA, Year, and level of offense
+
+```{r}
+#make a bar chart
+ggplot( simulated_data |> group_by(Year, Level_of_offense) |> tally() ) +
+  geom_line( aes( x = Year, y = n, color = Level_of_offense )) + 
+  geom_point( aes( x = Year, y = n, color = Level_of_offense ) ) +
+  scale_color_manual( values = c("red","blue") ) +
+  facet_wrap(~Level_of_offense) +
+  expand_limits(y = 0) +
+  labs( x = "Year",
+        y = "Number of states" ) +
+  theme_bw() +
+  theme( legend.position = "none")
+```
+
+MLSA per state from 1992 to 2025
+
+```{r}
+ggplot( simulated_data) + 
+geom_line(aes( x = Year, y = MLSA, color = state ) ) + 
+theme_bw( base_size = 12) + 
+theme( legend.position = "none" ) + 
+expand_limits( y = 0) +
+labs( x = "Year", y = "MLSA", 
+title = "MLSA per state from 1992 to 2025")
+```
+
+top ten states with lowest MLSA from 1992 to 2025.
+
+```{r}
+# View( simulated_data |> arrange( desc( MLSA )))
+
+top10states <- simulated_data |> 
+  arrange(desc(MLSA)) |>
+  slice_head(n = 10 ) |>
+  pull( state )
+
+ggplot( simulated_data |>
+      filter( state %in% top10states ) ) +
+geom_line(aes( x = Year, y = MLSA, color = state) ) + 
+theme_bw( base_size = 12) + 
+theme( legend.position = "bottom" ) + 
+expand_limits( y = 0) +
+labs( x = "Year", y = "MLSA", 
+title = "10 lowest MLSAs from 1992 to 2025")
+```
+
 ```{r}
 ####visualize data####
 
@@ -65,5 +111,20 @@ teen_access_data |>
   geom_line() +
   theme_minimal() + 
   labs(x = year, y = MLSA, z = MLSA) #facitrap??????
+```
 
+READ DATA #ADD CSV \`\`\`{r}
 
+```{r}
+#### Read in the data ####
+
+MLSA <- read_csv(file = "Restrictions on Sales to Underage Persons_ States with Laws Prohibiting Sales of E-Cigarettes to Underage Persons (Enacted as of June 30, 2024 (n=58)).csv", show_col_types = FALSE)
+
+new_mlsa <- read_csv("States and Territories with a Minimum Legal Sales Age (MLSA) of 21 Years for Purchasing Any Tobacco Product – Laws Enacted by September 30, 2024 (n=58).csv", show_col_types = F)
+
+new_mlsa |> 
+  group_by( ProvisionValue ) |>
+  tally() |>
+  ggplot( aes( x = ProvisionValue, y = n )) +
+  geom_col()
+```
