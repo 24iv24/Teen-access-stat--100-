@@ -1,0 +1,8 @@
+---
+title: "Smoking Rates Paper"
+author: "Hunter Huckabay and Ivy Gates"
+format: html
+---
+
+# Introduction
+According to the American Lung Association, cigarette smoking rates have fallen significantly for both adults and youth since the 1990s. Since 2002, there have been more former smokers than current smokers and more than half of cigarette smokers have quit. However, the National Institute of Health has found that the rate of e-cigarette use has increased from 1.5% in 2011 to 20.8% in 2018. Our goal of this project is to compare cigarette use to e-cigarette use in America. We aim to see what age groups smoking is the most popular as well as the health repercussions smokers face. We aim to answer the question of how the rate of Americans smoking cigarettes has changed overtime and how the creation of e-cigarettes has impacted those rates. 

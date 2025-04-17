@@ -14,6 +14,7 @@ library(lubridate)
 library(janitor)
 library(RColorBrewer)
 library(ggplot2)
+library(tinytable)
 ```
 
 
@@ -52,6 +53,15 @@ ggplot( Smoking, aes(x=Year, y = Smokes, color = State)) +
   geom_line() +
   theme( legend.position = "none")
 
+
+```
+```{r}
+State_Stats <- Smoking |>
+  group_by(State) |>
+  summarise(TOTAl = sum(Smokes) / 1e8,
+            AVERAGE = mean(Smokes) / 1e7)
+
+ tt(State_Stats, capiton = "Smokers by State")
 
 ```
 
