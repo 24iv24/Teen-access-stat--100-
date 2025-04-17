@@ -45,14 +45,30 @@ ggplot(long_data, aes(x = Category, y = Value, fill = Category)) +
 
 
 # National Smoking Trends from 1995 to 2011
+smoking data nationally. 
+Average  percent of smokers out of population per year (nationally) will create a plot point chart, then we can connect points to make it into a line graph— this will show trends. 
+Our final project will no longer have to do with MLSA or state laws
+instead the increase and decrease of smokers nationally both for E-ciggarettes and Cigarettes. 
+possibly include other tobacco products if necessary. 
+
+
+
+(we need to take out state)
 
 ```{r}
 Smoking <- read.csv("Current smoking.csv")
+
+national_rates <- Smoking |> 
+  group_by (Year) |> 
+  summarize(national_average = mean(Smokes))
 
 ggplot( Smoking, aes(x=Year, y = Smokes, color = State)) + 
   geom_line() +
   theme( legend.position = "none")
 
+ggplot( national_rates, aes( x = Year, y = national_average ) ) +
+  geom_line() +
+  expand_limits( y = 0 )
 
 ```
 ```{r}
@@ -64,4 +80,5 @@ State_Stats <- Smoking |>
  tt(State_Stats, capiton = "Smokers by State")
 
 ```
+
 
