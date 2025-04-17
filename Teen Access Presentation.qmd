@@ -71,6 +71,7 @@ ggplot( national_rates, aes( x = Year, y = national_average ) ) +
   expand_limits( y = 0 )
 
 ```
+
 ```{r}
 State_Stats <- Smoking |>
   group_by(State) |>
