@@ -23,7 +23,7 @@ library(ggplot2)
 National <- data.frame(
   Year = 2011,
   Smoke_everday = 15.4,
-  Somke_some_days = 5.7,
+  Smoke_some_days = 5.7,
   Former_smoker = 25.0,
   Never_Smoked = 52.9
 )
