@@ -2,6 +2,8 @@
 title: "Teen Access"
 author: "Hunter Huckabay and Ivy Gates"
 format: revealjs
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Introduction 
@@ -75,10 +77,9 @@ ggplot( national_rates, aes( x = Year, y = national_average ) ) +
 ```{r}
 State_Stats <- Smoking |>
   group_by(State) |>
-  summarise(TOTAl = sum(Smokes) / 1e8,
-            AVERAGE = mean(Smokes) / 1e7)
+  summarise(AVERAGE = mean(Smokes))
 
- tt(State_Stats, capiton = "Smokers by State")
+ tt(State_Stats, capiton = "Smokers by State", digits = 3)
 
 ```
 
