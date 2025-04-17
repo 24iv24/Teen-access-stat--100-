@@ -82,4 +82,10 @@ State_Stats <- Smoking |>
 
 ```
 
+final presentation: 10 minutes
+at least 4 visualizations, at least one of which is a map
+
+map: choropleth color of state = percentage of smokers
+
+
 
