@@ -1,0 +1,49 @@
+---
+title: "Teen Access"
+author: "Hunter Huckabay and Ivy Gates"
+format: revealjs
+---
+
+Introduction 
+According to the American Lung Association, cigarette smoking rates have fallen significantly for both adults and youth since the 1990s. Since 2002, there have been more former smokers than current smokers and more than half of cigarette smokers have quit. However, the National Institute of Health has found that the rate of e-cigarette use has increased from 1.5% in 2011 to 20.8% in 2018. Our goal of this project is to compare cigarette use to e-cigarette use in America. We aim to see what age groups smoking is the most popular as well as the health repercussions smokers face.
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(RColorBrewer)
+library(ggplot2)
+
+```
+```{r}
+National <- data.frame(
+  Year = 2011,
+  Smoke_everday = 15.4,
+  Somke_some_days = 5.7,
+  Former_smoker = 25.0,
+  Never_Smoked = 52.9
+)
+
+long_data <- National %>%
+  pivot_longer(cols = -Year, names_to = "Category", values_to = "Value")
+
+ggplot(long_data, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Smoking in 2011",
+    x = "Category",
+    y = "Percent"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+Smoking <- read.csv("Current smoking.csv")
+
+ggplot( Smoking, aes(x=Year, y = Smokes, color = State)) + 
+  geom_line() +
+  theme( legend.position = "none")
+
+
+```
+
