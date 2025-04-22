@@ -1,5 +1,5 @@
 ---
-title: "Teen Access"
+title: "Smoking Rates in the United States Over Time"
 author: "Hunter Huckabay and Ivy Gates"
 format: revealjs
 editor_options: 
