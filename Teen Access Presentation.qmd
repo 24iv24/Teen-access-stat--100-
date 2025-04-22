@@ -60,15 +60,7 @@ ggplot( national_rates, aes(x=Year, y = national_average)) +
   theme( legend.position = "none")
 ```
 
-## new slide 
-
-```{r}
-ggplot( national_rates, aes( x = Year, y = national_average ) ) +
-  geom_line() +
-  expand_limits( y = 0 )
-
-```
-
+## Average Percent of smokers by state
 ```{r}
 State_Stats <- Smoking |>
   group_by(State) |>
