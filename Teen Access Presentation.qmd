@@ -74,12 +74,50 @@ ggplot( national_rates, aes( x = Year, y = national_average ) ) +
 
 ```
 
-```{r}
-State_Stats <- Smoking |>
-  group_by(State) |>
-  summarise(AVERAGE = mean(Smokes))
 
- tt(State_Stats, capiton = "Smokers by State", digits = 3)
+(need help getting theme = striped)
+```{r}
+library(gt)
+State_Stats |> 
+  gt() |> 
+  tab_header(title = "Smokers by State") |> 
+  fmt_number(columns = AVERAGE, decimals = 1)
+
+```
+
+data from above but as a choropleth: 
+```{r}
+install.packages("usmap")
+install.packages("ggplot2")
+```
+```{r}
+library("plotly")
+"ggplotly"
+
+```
+
+
+```{r}
+library(plotly)
+library(dplyr)
+
+
+state_data <- State_Stats %>%
+  mutate(code = state.abb[match(State, state.name)]) 
+# Create interactive choropleth
+plot_geo(state_data, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~AVERAGE,
+    locations = ~code,
+    color = ~AVERAGE,
+    colors = 'Blues',
+    text = ~paste(State, "<br>Avg Smokers: ", round(AVERAGE, 1), "%"),
+    hoverinfo = "text"
+  ) %>%
+  layout(
+    title = "Average Percentage of Smokers by State (Interactive)",
+    geo = list(scope = 'usa')
+  )
 
 ```
 

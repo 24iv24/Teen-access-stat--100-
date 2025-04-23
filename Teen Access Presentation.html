@@ -150,10 +150,343 @@ Hunter Huckabay and Ivy Gates
 
 <section id="national-smoking-trends-from-1995-to-2011" class="title-slide slide level1 center">
 <h1>National Smoking Trends from 1995 to 2011</h1>
-<p>(we need to take out states)</p>
+<p>smoking data nationally. Average percent of smokers out of population per year (nationally) will create a plot point chart, then we can connect points to make it into a line graph— this will show trends. Our final project will no longer have to do with MLSA or state laws instead the increase and decrease of smokers nationally both for E-ciggarettes and Cigarettes. possibly include other tobacco products if necessary.</p>
+<p>(we need to take out state)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<!-- preamble start -->
 
+    <script>
 
-<img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+      function styleCell_5n18025tyyxx8tw3jd81(i, j, css_id) {
+          var table = document.getElementById("tinytable_5n18025tyyxx8tw3jd81");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_5n18025tyyxx8tw3jd81');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_5n18025tyyxx8tw3jd81(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_5n18025tyyxx8tw3jd81");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 56, j: 0 }, { i: 56, j: 1 },  ], css_id: 'tinytable_css_ms451z2czgi4mz7gjuga',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_7rm0os27m1op3d4ztk3f',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_5n18025tyyxx8tw3jd81(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_ms451z2czgi4mz7gjuga, .table th.tinytable_css_ms451z2czgi4mz7gjuga { border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_7rm0os27m1op3d4ztk3f, .table th.tinytable_css_7rm0os27m1op3d4ztk3f { border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_5n18025tyyxx8tw3jd81" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">State</th>
+                <th scope="col">AVERAGE</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td>Alabama</td>
+                  <td>23.77</td>
+                </tr>
+                <tr>
+                  <td>Alaska</td>
+                  <td>24.86</td>
+                </tr>
+                <tr>
+                  <td>Arizona</td>
+                  <td>19.85</td>
+                </tr>
+                <tr>
+                  <td>Arkansas</td>
+                  <td>24.73</td>
+                </tr>
+                <tr>
+                  <td>California</td>
+                  <td>16.01</td>
+                </tr>
+                <tr>
+                  <td>Colorado</td>
+                  <td>20.05</td>
+                </tr>
+                <tr>
+                  <td>Connecticut</td>
+                  <td>18.62</td>
+                </tr>
+                <tr>
+                  <td>Delaware</td>
+                  <td>22.48</td>
+                </tr>
+                <tr>
+                  <td>District of Columbia</td>
+                  <td>19.25</td>
+                </tr>
+                <tr>
+                  <td>Florida</td>
+                  <td>21.04</td>
+                </tr>
+                <tr>
+                  <td>Georgia</td>
+                  <td>21.24</td>
+                </tr>
+                <tr>
+                  <td>Guam</td>
+                  <td>29.34</td>
+                </tr>
+                <tr>
+                  <td>Hawaii</td>
+                  <td>18.13</td>
+                </tr>
+                <tr>
+                  <td>Idaho</td>
+                  <td>19.01</td>
+                </tr>
+                <tr>
+                  <td>Illinois</td>
+                  <td>21.88</td>
+                </tr>
+                <tr>
+                  <td>Indiana</td>
+                  <td>25.87</td>
+                </tr>
+                <tr>
+                  <td>Iowa</td>
+                  <td>21.34</td>
+                </tr>
+                <tr>
+                  <td>Kansas</td>
+                  <td>20.17</td>
+                </tr>
+                <tr>
+                  <td>Kentucky</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td>Louisiana</td>
+                  <td>23.79</td>
+                </tr>
+                <tr>
+                  <td>Maine</td>
+                  <td>21.89</td>
+                </tr>
+                <tr>
+                  <td>Maryland</td>
+                  <td>19.21</td>
+                </tr>
+                <tr>
+                  <td>Massachusetts</td>
+                  <td>18.71</td>
+                </tr>
+                <tr>
+                  <td>Michigan</td>
+                  <td>23.61</td>
+                </tr>
+                <tr>
+                  <td>Minnesota</td>
+                  <td>19.38</td>
+                </tr>
+                <tr>
+                  <td>Mississippi</td>
+                  <td>24.07</td>
+                </tr>
+                <tr>
+                  <td>Missouri</td>
+                  <td>25.34</td>
+                </tr>
+                <tr>
+                  <td>Montana</td>
+                  <td>19.94</td>
+                </tr>
+                <tr>
+                  <td>Nationwide (States and DC)</td>
+                  <td>21.36</td>
+                </tr>
+                <tr>
+                  <td>Nationwide (States, DC, and Territories)</td>
+                  <td>21.49</td>
+                </tr>
+                <tr>
+                  <td>Nebraska</td>
+                  <td>20.57</td>
+                </tr>
+                <tr>
+                  <td>Nevada</td>
+                  <td>25.44</td>
+                </tr>
+                <tr>
+                  <td>New Hampshire</td>
+                  <td>21.27</td>
+                </tr>
+                <tr>
+                  <td>New Jersey</td>
+                  <td>18.77</td>
+                </tr>
+                <tr>
+                  <td>New Mexico</td>
+                  <td>21.26</td>
+                </tr>
+                <tr>
+                  <td>New York</td>
+                  <td>20.64</td>
+                </tr>
+                <tr>
+                  <td>North Carolina</td>
+                  <td>23.86</td>
+                </tr>
+                <tr>
+                  <td>North Dakota</td>
+                  <td>20.77</td>
+                </tr>
+                <tr>
+                  <td>Ohio</td>
+                  <td>24.72</td>
+                </tr>
+                <tr>
+                  <td>Oklahoma</td>
+                  <td>24.95</td>
+                </tr>
+                <tr>
+                  <td>Oregon</td>
+                  <td>19.76</td>
+                </tr>
+                <tr>
+                  <td>Pennsylvania</td>
+                  <td>22.95</td>
+                </tr>
+                <tr>
+                  <td>Puerto Rico</td>
+                  <td>12.99</td>
+                </tr>
+                <tr>
+                  <td>Rhode Island</td>
+                  <td>20.88</td>
+                </tr>
+                <tr>
+                  <td>South Carolina</td>
+                  <td>23.46</td>
+                </tr>
+                <tr>
+                  <td>South Dakota</td>
+                  <td>21.04</td>
+                </tr>
+                <tr>
+                  <td>Tennessee</td>
+                  <td>25.04</td>
+                </tr>
+                <tr>
+                  <td>Texas</td>
+                  <td>20.79</td>
+                </tr>
+                <tr>
+                  <td>Utah</td>
+                  <td>11.75</td>
+                </tr>
+                <tr>
+                  <td>Vermont</td>
+                  <td>20.14</td>
+                </tr>
+                <tr>
+                  <td>Virgin Islands</td>
+                  <td>8.27</td>
+                </tr>
+                <tr>
+                  <td>Virginia</td>
+                  <td>21.2</td>
+                </tr>
+                <tr>
+                  <td>Washington</td>
+                  <td>19.49</td>
+                </tr>
+                <tr>
+                  <td>West Virginia</td>
+                  <td>26.87</td>
+                </tr>
+                <tr>
+                  <td>Wisconsin</td>
+                  <td>21.93</td>
+                </tr>
+                <tr>
+                  <td>Wyoming</td>
+                  <td>22.32</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p>final presentation: 10 minutes at least 4 visualizations, at least one of which is a map</p>
+<p>map: choropleth color of state = percentage of smokers</p>
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
