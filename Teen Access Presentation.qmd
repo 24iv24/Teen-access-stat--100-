@@ -56,16 +56,13 @@ national_rates <- Smoking |>
   summarize(national_average = mean(Smokes))
 
 ggplot( national_rates, aes(x=Year, y = national_average)) + 
-  geom_line() +
+  geom_line() + 
+  expand_limits( y = 0 ) +
   theme( legend.position = "none")
 ```
 
-<<<<<<< HEAD
-
-(need help getting theme = striped)
-=======
 ## Average Percent of smokers by state
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
+
 ```{r}
 library(gt)
 State_Stats |> 
@@ -76,21 +73,17 @@ State_Stats |>
 ```
 
 data from above but as a choropleth: 
+
 ```{r}
+#| eval: FALSE
 install.packages("usmap")
 install.packages("ggplot2")
-```
-```{r}
-library("plotly")
-"ggplotly"
-
 ```
 
 
 ```{r}
 library(plotly)
 library(dplyr)
-
 
 state_data <- State_Stats %>%
   mutate(code = state.abb[match(State, state.name)]) 
