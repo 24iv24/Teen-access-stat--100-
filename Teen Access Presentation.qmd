@@ -64,11 +64,10 @@ ggplot( national_rates, aes(x=Year, y = national_average)) +
 ## Average Percent of smokers by state
 
 ```{r}
-<<<<<<< HEAD
 State_Stats <- Smoking |>
   group_by(State) |>
   summarise(AVERAGE = mean(Smokes)) 
-=======
+
 library(gt)
 State_Stats |> 
   gt() |> 
