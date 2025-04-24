@@ -121,6 +121,15 @@
       margin-right: 0; 
     }
   </style>
+  <link href="Teen Access Presentation_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+  <script src="Teen Access Presentation_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="Teen Access Presentation_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+  <script src="Teen Access Presentation_files/libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="Teen Access Presentation_files/libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="Teen Access Presentation_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+  <script src="Teen Access Presentation_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+  <link href="Teen Access Presentation_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="Teen Access Presentation_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -151,386 +160,716 @@ Hunter Huckabay and Ivy Gates
 <section id="national-smoking-trends-from-1995-to-2011" class="slide level2">
 <h2>National Smoking Trends from 1995 to 2011</h2>
 
-<<<<<<< HEAD
-<section id="national-smoking-trends-from-1995-to-2011" class="title-slide slide level1 center">
-<h1>National Smoking Trends from 1995 to 2011</h1>
-<p>smoking data nationally. Average percent of smokers out of population per year (nationally) will create a plot point chart, then we can connect points to make it into a line graph— this will show trends. Our final project will no longer have to do with MLSA or state laws instead the increase and decrease of smokers nationally both for E-ciggarettes and Cigarettes. possibly include other tobacco products if necessary.</p>
-<p>(we need to take out state)</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-2.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-=======
 <img data-src="Teen-Access-Presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="average-percent-of-smokers-by-state" class="slide level2">
 <h2>Average Percent of smokers by state</h2>
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
 <div class="cell">
 <div class="cell-output-display">
-<!-- preamble start -->
+<div id="mvqlwueuif" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mvqlwueuif table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    <script>
+#mvqlwueuif thead, #mvqlwueuif tbody, #mvqlwueuif tfoot, #mvqlwueuif tr, #mvqlwueuif td, #mvqlwueuif th {
+  border-style: none;
+}
 
-<<<<<<< HEAD
-      function styleCell_5n18025tyyxx8tw3jd81(i, j, css_id) {
-          var table = document.getElementById("tinytable_5n18025tyyxx8tw3jd81");
-=======
-      function styleCell_nyndptik9gaug3ty0zhd(i, j, css_id) {
-          var table = document.getElementById("tinytable_nyndptik9gaug3ty0zhd");
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
-          if (cell) {
-              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
-              cell.classList.add(css_id);
-          } else {
-              console.warn(`Cell at (${i}, ${j}) not found.`);
-          }
-      }
-      function insertSpanRow(i, colspan, content) {
-<<<<<<< HEAD
-        var table = document.getElementById('tinytable_5n18025tyyxx8tw3jd81');
-=======
-        var table = document.getElementById('tinytable_nyndptik9gaug3ty0zhd');
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-        var newRow = table.insertRow(i);
-        var newCell = newRow.insertCell(0);
-        newCell.setAttribute("colspan", colspan);
-        // newCell.innerText = content;
-        // this may be unsafe, but innerText does not interpret <br>
-        newCell.innerHTML = content;
-      }
-<<<<<<< HEAD
-      function spanCell_5n18025tyyxx8tw3jd81(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_5n18025tyyxx8tw3jd81");
-=======
-      function spanCell_nyndptik9gaug3ty0zhd(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_nyndptik9gaug3ty0zhd");
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-        const targetRow = table.rows[i];
-        const targetCell = targetRow.cells[j];
-        for (let r = 0; r < rowspan; r++) {
-          // Only start deleting cells to the right for the first row (r == 0)
-          if (r === 0) {
-            // Delete cells to the right of the target cell in the first row
-            for (let c = colspan - 1; c > 0; c--) {
-              if (table.rows[i + r].cells[j + c]) {
-                table.rows[i + r].deleteCell(j + c);
-              }
-            }
-          }
-          // For rows below the first, delete starting from the target column
-          if (r > 0) {
-            for (let c = colspan - 1; c >= 0; c--) {
-              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
-                table.rows[i + r].deleteCell(j);
-              }
-            }
-          }
-        }
-        // Set rowspan and colspan of the target cell
-        targetCell.rowSpan = rowspan;
-        targetCell.colSpan = colspan;
-      }
-      // tinytable span after
-      window.addEventListener('load', function () {
-          var cellsToStyle = [
-            // tinytable style arrays after
-<<<<<<< HEAD
-          { positions: [ { i: 56, j: 0 }, { i: 56, j: 1 },  ], css_id: 'tinytable_css_ms451z2czgi4mz7gjuga',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_7rm0os27m1op3d4ztk3f',}, 
-=======
-          { positions: [ { i: 56, j: 0 }, { i: 56, j: 1 },  ], css_id: 'tinytable_css_npclan6vwzdjil5ivo2o',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_cu201ureia1ra8r4tcdl',}, 
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-          ];
+#mvqlwueuif p {
+  margin: 0;
+  padding: 0;
+}
 
-          // Loop over the arrays to style the cells
-          cellsToStyle.forEach(function (group) {
-              group.positions.forEach(function (cell) {
-<<<<<<< HEAD
-                  styleCell_5n18025tyyxx8tw3jd81(cell.i, cell.j, group.css_id);
-=======
-                  styleCell_nyndptik9gaug3ty0zhd(cell.i, cell.j, group.css_id);
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-              });
-          });
-      });
-    </script>
+#mvqlwueuif .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
 
-    <style>
-      /* tinytable css entries after */
-<<<<<<< HEAD
-      .table td.tinytable_css_ms451z2czgi4mz7gjuga, .table th.tinytable_css_ms451z2czgi4mz7gjuga { border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_7rm0os27m1op3d4ztk3f, .table th.tinytable_css_7rm0os27m1op3d4ztk3f { border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-    </style>
-    <div class="container">
-      <table class="table table-borderless" id="tinytable_5n18025tyyxx8tw3jd81" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-=======
-      .table td.tinytable_css_npclan6vwzdjil5ivo2o, .table th.tinytable_css_npclan6vwzdjil5ivo2o { border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_cu201ureia1ra8r4tcdl, .table th.tinytable_css_cu201ureia1ra8r4tcdl { border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-    </style>
-    <div class="container">
-      <table class="table table-borderless" id="tinytable_nyndptik9gaug3ty0zhd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
-        <thead>
-        
-              <tr>
-                <th scope="col">State</th>
-                <th scope="col">AVERAGE</th>
-              </tr>
-        </thead>
-        
-        <tbody>
-                <tr>
-                  <td>Alabama</td>
-                  <td>23.77</td>
-                </tr>
-                <tr>
-                  <td>Alaska</td>
-                  <td>24.86</td>
-                </tr>
-                <tr>
-                  <td>Arizona</td>
-                  <td>19.85</td>
-                </tr>
-                <tr>
-                  <td>Arkansas</td>
-                  <td>24.73</td>
-                </tr>
-                <tr>
-                  <td>California</td>
-                  <td>16.01</td>
-                </tr>
-                <tr>
-                  <td>Colorado</td>
-                  <td>20.05</td>
-                </tr>
-                <tr>
-                  <td>Connecticut</td>
-                  <td>18.62</td>
-                </tr>
-                <tr>
-                  <td>Delaware</td>
-                  <td>22.48</td>
-                </tr>
-                <tr>
-                  <td>District of Columbia</td>
-                  <td>19.25</td>
-                </tr>
-                <tr>
-                  <td>Florida</td>
-                  <td>21.04</td>
-                </tr>
-                <tr>
-                  <td>Georgia</td>
-                  <td>21.24</td>
-                </tr>
-                <tr>
-                  <td>Guam</td>
-                  <td>29.34</td>
-                </tr>
-                <tr>
-                  <td>Hawaii</td>
-                  <td>18.13</td>
-                </tr>
-                <tr>
-                  <td>Idaho</td>
-                  <td>19.01</td>
-                </tr>
-                <tr>
-                  <td>Illinois</td>
-                  <td>21.88</td>
-                </tr>
-                <tr>
-                  <td>Indiana</td>
-                  <td>25.87</td>
-                </tr>
-                <tr>
-                  <td>Iowa</td>
-                  <td>21.34</td>
-                </tr>
-                <tr>
-                  <td>Kansas</td>
-                  <td>20.17</td>
-                </tr>
-                <tr>
-                  <td>Kentucky</td>
-                  <td>29</td>
-                </tr>
-                <tr>
-                  <td>Louisiana</td>
-                  <td>23.79</td>
-                </tr>
-                <tr>
-                  <td>Maine</td>
-                  <td>21.89</td>
-                </tr>
-                <tr>
-                  <td>Maryland</td>
-                  <td>19.21</td>
-                </tr>
-                <tr>
-                  <td>Massachusetts</td>
-                  <td>18.71</td>
-                </tr>
-                <tr>
-                  <td>Michigan</td>
-                  <td>23.61</td>
-                </tr>
-                <tr>
-                  <td>Minnesota</td>
-                  <td>19.38</td>
-                </tr>
-                <tr>
-                  <td>Mississippi</td>
-                  <td>24.07</td>
-                </tr>
-                <tr>
-                  <td>Missouri</td>
-                  <td>25.34</td>
-                </tr>
-                <tr>
-                  <td>Montana</td>
-                  <td>19.94</td>
-                </tr>
-                <tr>
-                  <td>Nationwide (States and DC)</td>
-                  <td>21.36</td>
-                </tr>
-                <tr>
-                  <td>Nationwide (States, DC, and Territories)</td>
-                  <td>21.49</td>
-                </tr>
-                <tr>
-                  <td>Nebraska</td>
-                  <td>20.57</td>
-                </tr>
-                <tr>
-                  <td>Nevada</td>
-                  <td>25.44</td>
-                </tr>
-                <tr>
-                  <td>New Hampshire</td>
-                  <td>21.27</td>
-                </tr>
-                <tr>
-                  <td>New Jersey</td>
-                  <td>18.77</td>
-                </tr>
-                <tr>
-                  <td>New Mexico</td>
-                  <td>21.26</td>
-                </tr>
-                <tr>
-                  <td>New York</td>
-                  <td>20.64</td>
-                </tr>
-                <tr>
-                  <td>North Carolina</td>
-                  <td>23.86</td>
-                </tr>
-                <tr>
-                  <td>North Dakota</td>
-                  <td>20.77</td>
-                </tr>
-                <tr>
-                  <td>Ohio</td>
-                  <td>24.72</td>
-                </tr>
-                <tr>
-                  <td>Oklahoma</td>
-                  <td>24.95</td>
-                </tr>
-                <tr>
-                  <td>Oregon</td>
-                  <td>19.76</td>
-                </tr>
-                <tr>
-                  <td>Pennsylvania</td>
-                  <td>22.95</td>
-                </tr>
-                <tr>
-                  <td>Puerto Rico</td>
-                  <td>12.99</td>
-                </tr>
-                <tr>
-                  <td>Rhode Island</td>
-                  <td>20.88</td>
-                </tr>
-                <tr>
-                  <td>South Carolina</td>
-                  <td>23.46</td>
-                </tr>
-                <tr>
-                  <td>South Dakota</td>
-                  <td>21.04</td>
-                </tr>
-                <tr>
-                  <td>Tennessee</td>
-                  <td>25.04</td>
-                </tr>
-                <tr>
-                  <td>Texas</td>
-                  <td>20.79</td>
-                </tr>
-                <tr>
-                  <td>Utah</td>
-                  <td>11.75</td>
-                </tr>
-                <tr>
-                  <td>Vermont</td>
-                  <td>20.14</td>
-                </tr>
-                <tr>
-                  <td>Virgin Islands</td>
-                  <td>8.27</td>
-                </tr>
-                <tr>
-                  <td>Virginia</td>
-                  <td>21.2</td>
-                </tr>
-                <tr>
-                  <td>Washington</td>
-                  <td>19.49</td>
-                </tr>
-                <tr>
-                  <td>West Virginia</td>
-                  <td>26.87</td>
-                </tr>
-                <tr>
-                  <td>Wisconsin</td>
-                  <td>21.93</td>
-                </tr>
-                <tr>
-                  <td>Wyoming</td>
-                  <td>22.32</td>
-                </tr>
-        </tbody>
-      </table>
-    </div>
-<!-- hack to avoid NA insertion in last line -->
+#mvqlwueuif .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mvqlwueuif .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mvqlwueuif .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mvqlwueuif .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mvqlwueuif .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mvqlwueuif .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mvqlwueuif .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mvqlwueuif .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mvqlwueuif .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mvqlwueuif .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mvqlwueuif .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mvqlwueuif .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mvqlwueuif .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mvqlwueuif .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mvqlwueuif .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvqlwueuif .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mvqlwueuif .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mvqlwueuif .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mvqlwueuif .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvqlwueuif .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mvqlwueuif .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvqlwueuif .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mvqlwueuif .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvqlwueuif .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mvqlwueuif .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvqlwueuif .gt_left {
+  text-align: left;
+}
+
+#mvqlwueuif .gt_center {
+  text-align: center;
+}
+
+#mvqlwueuif .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mvqlwueuif .gt_font_normal {
+  font-weight: normal;
+}
+
+#mvqlwueuif .gt_font_bold {
+  font-weight: bold;
+}
+
+#mvqlwueuif .gt_font_italic {
+  font-style: italic;
+}
+
+#mvqlwueuif .gt_super {
+  font-size: 65%;
+}
+
+#mvqlwueuif .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mvqlwueuif .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mvqlwueuif .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mvqlwueuif .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mvqlwueuif .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mvqlwueuif .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mvqlwueuif .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mvqlwueuif .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mvqlwueuif div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Smokers by State</th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="State" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">State</th>
+<th id="AVERAGE" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">AVERAGE</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Alabama</td>
+<td class="gt_row gt_right" headers="AVERAGE">23.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Alaska</td>
+<td class="gt_row gt_right" headers="AVERAGE">24.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Arizona</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Arkansas</td>
+<td class="gt_row gt_right" headers="AVERAGE">24.7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">California</td>
+<td class="gt_row gt_right" headers="AVERAGE">16.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Colorado</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Connecticut</td>
+<td class="gt_row gt_right" headers="AVERAGE">18.6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Delaware</td>
+<td class="gt_row gt_right" headers="AVERAGE">22.5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">District of Columbia</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Florida</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Georgia</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Guam</td>
+<td class="gt_row gt_right" headers="AVERAGE">29.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Hawaii</td>
+<td class="gt_row gt_right" headers="AVERAGE">18.1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Idaho</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Illinois</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Indiana</td>
+<td class="gt_row gt_right" headers="AVERAGE">25.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Iowa</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Kansas</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Kentucky</td>
+<td class="gt_row gt_right" headers="AVERAGE">29.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Louisiana</td>
+<td class="gt_row gt_right" headers="AVERAGE">23.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Maine</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Maryland</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Massachusetts</td>
+<td class="gt_row gt_right" headers="AVERAGE">18.7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Michigan</td>
+<td class="gt_row gt_right" headers="AVERAGE">23.6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Minnesota</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Mississippi</td>
+<td class="gt_row gt_right" headers="AVERAGE">24.1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Missouri</td>
+<td class="gt_row gt_right" headers="AVERAGE">25.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Montana</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Nationwide (States and DC)</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Nationwide (States, DC, and Territories)</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Nebraska</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Nevada</td>
+<td class="gt_row gt_right" headers="AVERAGE">25.4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">New Hampshire</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">New Jersey</td>
+<td class="gt_row gt_right" headers="AVERAGE">18.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">New Mexico</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">New York</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">North Carolina</td>
+<td class="gt_row gt_right" headers="AVERAGE">23.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">North Dakota</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Ohio</td>
+<td class="gt_row gt_right" headers="AVERAGE">24.7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Oklahoma</td>
+<td class="gt_row gt_right" headers="AVERAGE">24.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Oregon</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Pennsylvania</td>
+<td class="gt_row gt_right" headers="AVERAGE">22.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Puerto Rico</td>
+<td class="gt_row gt_right" headers="AVERAGE">13.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Rhode Island</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">South Carolina</td>
+<td class="gt_row gt_right" headers="AVERAGE">23.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">South Dakota</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Tennessee</td>
+<td class="gt_row gt_right" headers="AVERAGE">25.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Texas</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Utah</td>
+<td class="gt_row gt_right" headers="AVERAGE">11.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Vermont</td>
+<td class="gt_row gt_right" headers="AVERAGE">20.1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Virgin Islands</td>
+<td class="gt_row gt_right" headers="AVERAGE">8.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Virginia</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Washington</td>
+<td class="gt_row gt_right" headers="AVERAGE">19.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">West Virginia</td>
+<td class="gt_row gt_right" headers="AVERAGE">26.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="State">Wisconsin</td>
+<td class="gt_row gt_right" headers="AVERAGE">21.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="State">Wyoming</td>
+<td class="gt_row gt_right" headers="AVERAGE">22.3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>data from above but as a choropleth:</p>
+</section>
+<section id="choropleth" class="slide level2">
+<h2>choropleth</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c21fde06e65eb5885209" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c21fde06e65eb5885209">{"x":{"visdat":{"41739648fbc":["function () ","plotlyVisDat"]},"cur_data":"41739648fbc","attrs":{"41739648fbc":{"locationmode":"USA-states","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"z":{},"locations":{},"color":{},"colors":"Blues","text":{},"hoverinfo":"text","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"mapType":"geo","title":"Average Percentage of Smokers by State (Interactive)","geo":{"domain":{"x":[0,1],"y":[0,1]},"scope":"usa"},"scene":{"zaxis":{"title":"AVERAGE"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"AVERAGE","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(247,251,255,1)"],["0.0416666666666666","rgba(239,246,252,1)"],["0.0833333333333333","rgba(230,240,250,1)"],["0.125","rgba(222,235,247,1)"],["0.166666666666667","rgba(214,230,244,1)"],["0.208333333333333","rgba(206,224,242,1)"],["0.25","rgba(198,219,239,1)"],["0.291666666666667","rgba(185,213,234,1)"],["0.333333333333333","rgba(172,208,230,1)"],["0.375","rgba(158,202,225,1)"],["0.416666666666667","rgba(142,193,221,1)"],["0.458333333333333","rgba(125,183,218,1)"],["0.5","rgba(107,174,214,1)"],["0.541666666666667","rgba(94,165,209,1)"],["0.583333333333333","rgba(81,155,203,1)"],["0.625","rgba(66,146,198,1)"],["0.666666666666667","rgba(57,135,192,1)"],["0.708333333333333","rgba(46,124,187,1)"],["0.75","rgba(33,113,181,1)"],["0.791666666666667","rgba(27,102,173,1)"],["0.833333333333333","rgba(19,91,164,1)"],["0.875","rgba(8,81,156,1)"],["0.916666666666667","rgba(9,70,139,1)"],["0.958333333333333","rgba(9,59,123,1)"],["1","rgba(8,48,107,1)"]],"showscale":true,"locationmode":"USA-states","z":[23.768750000000001,24.862500000000001,19.850000000000001,24.725000000000001,16.012499999999999,20.050000000000001,18.618749999999999,22.481249999999999,19.246666666666666,21.037500000000001,21.243749999999999,29.342857142857142,18.126666666666665,19.012499999999999,21.881250000000001,25.868749999999999,21.34375,20.168749999999999,29,23.787500000000001,21.893750000000001,19.212499999999999,18.706250000000001,23.606249999999999,19.375,24.068750000000001,25.34375,19.9375,21.356249999999999,21.486666666666665,20.568750000000001,25.4375,21.268750000000001,18.774999999999999,21.256250000000001,20.637499999999999,23.856249999999999,20.768750000000001,24.71875,24.949999999999999,19.762499999999999,22.949999999999999,12.986666666666666,20.875,23.462499999999999,21.037500000000001,25.037500000000001,20.787499999999998,11.75,20.137499999999999,8.2699999999999996,21.199999999999999,19.493749999999999,26.868749999999999,21.925000000000001,22.318750000000001],"locations":["AL","AK","AZ","AR","CA","CO","CT","DE",null,"FL","GA",null,"HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT",null,null,"NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA",null,"RI","SC","SD","TN","TX","UT","VT",null,"VA","WA","WV","WI","WY"],"text":["Alabama <br>Avg Smokers:  23.8 %","Alaska <br>Avg Smokers:  24.9 %","Arizona <br>Avg Smokers:  19.9 %","Arkansas <br>Avg Smokers:  24.7 %","California <br>Avg Smokers:  16 %","Colorado <br>Avg Smokers:  20 %","Connecticut <br>Avg Smokers:  18.6 %","Delaware <br>Avg Smokers:  22.5 %","District of Columbia <br>Avg Smokers:  19.2 %","Florida <br>Avg Smokers:  21 %","Georgia <br>Avg Smokers:  21.2 %","Guam <br>Avg Smokers:  29.3 %","Hawaii <br>Avg Smokers:  18.1 %","Idaho <br>Avg Smokers:  19 %","Illinois <br>Avg Smokers:  21.9 %","Indiana <br>Avg Smokers:  25.9 %","Iowa <br>Avg Smokers:  21.3 %","Kansas <br>Avg Smokers:  20.2 %","Kentucky <br>Avg Smokers:  29 %","Louisiana <br>Avg Smokers:  23.8 %","Maine <br>Avg Smokers:  21.9 %","Maryland <br>Avg Smokers:  19.2 %","Massachusetts <br>Avg Smokers:  18.7 %","Michigan <br>Avg Smokers:  23.6 %","Minnesota <br>Avg Smokers:  19.4 %","Mississippi <br>Avg Smokers:  24.1 %","Missouri <br>Avg Smokers:  25.3 %","Montana <br>Avg Smokers:  19.9 %","Nationwide (States and DC) <br>Avg Smokers:  21.4 %","Nationwide (States, DC, and Territories) <br>Avg Smokers:  21.5 %","Nebraska <br>Avg Smokers:  20.6 %","Nevada <br>Avg Smokers:  25.4 %","New Hampshire <br>Avg Smokers:  21.3 %","New Jersey <br>Avg Smokers:  18.8 %","New Mexico <br>Avg Smokers:  21.3 %","New York <br>Avg Smokers:  20.6 %","North Carolina <br>Avg Smokers:  23.9 %","North Dakota <br>Avg Smokers:  20.8 %","Ohio <br>Avg Smokers:  24.7 %","Oklahoma <br>Avg Smokers:  25 %","Oregon <br>Avg Smokers:  19.8 %","Pennsylvania <br>Avg Smokers:  23 %","Puerto Rico <br>Avg Smokers:  13 %","Rhode Island <br>Avg Smokers:  20.9 %","South Carolina <br>Avg Smokers:  23.5 %","South Dakota <br>Avg Smokers:  21 %","Tennessee <br>Avg Smokers:  25 %","Texas <br>Avg Smokers:  20.8 %","Utah <br>Avg Smokers:  11.8 %","Vermont <br>Avg Smokers:  20.1 %","Virgin Islands <br>Avg Smokers:  8.3 %","Virginia <br>Avg Smokers:  21.2 %","Washington <br>Avg Smokers:  19.5 %","West Virginia <br>Avg Smokers:  26.9 %","Wisconsin <br>Avg Smokers:  21.9 %","Wyoming <br>Avg Smokers:  22.3 %"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"choropleth","marker":{"line":{"colorbar":{"title":"","ticklen":2},"cmin":8.2699999999999996,"cmax":29.342857142857142,"colorscale":[["0","rgba(247,251,255,1)"],["0.0416666666666666","rgba(239,246,252,1)"],["0.0833333333333333","rgba(230,240,250,1)"],["0.125","rgba(222,235,247,1)"],["0.166666666666667","rgba(214,230,244,1)"],["0.208333333333333","rgba(206,224,242,1)"],["0.25","rgba(198,219,239,1)"],["0.291666666666667","rgba(185,213,234,1)"],["0.333333333333333","rgba(172,208,230,1)"],["0.375","rgba(158,202,225,1)"],["0.416666666666667","rgba(142,193,221,1)"],["0.458333333333333","rgba(125,183,218,1)"],["0.5","rgba(107,174,214,1)"],["0.541666666666667","rgba(94,165,209,1)"],["0.583333333333333","rgba(81,155,203,1)"],["0.625","rgba(66,146,198,1)"],["0.666666666666667","rgba(57,135,192,1)"],["0.708333333333333","rgba(46,124,187,1)"],["0.75","rgba(33,113,181,1)"],["0.791666666666667","rgba(27,102,173,1)"],["0.833333333333333","rgba(19,91,164,1)"],["0.875","rgba(8,81,156,1)"],["0.916666666666667","rgba(9,70,139,1)"],["0.958333333333333","rgba(9,59,123,1)"],["1","rgba(8,48,107,1)"]],"showscale":false,"color":[23.768750000000001,24.862500000000001,19.850000000000001,24.725000000000001,16.012499999999999,20.050000000000001,18.618749999999999,22.481249999999999,19.246666666666666,21.037500000000001,21.243749999999999,29.342857142857142,18.126666666666665,19.012499999999999,21.881250000000001,25.868749999999999,21.34375,20.168749999999999,29,23.787500000000001,21.893750000000001,19.212499999999999,18.706250000000001,23.606249999999999,19.375,24.068750000000001,25.34375,19.9375,21.356249999999999,21.486666666666665,20.568750000000001,25.4375,21.268750000000001,18.774999999999999,21.256250000000001,20.637499999999999,23.856249999999999,20.768750000000001,24.71875,24.949999999999999,19.762499999999999,22.949999999999999,12.986666666666666,20.875,23.462499999999999,21.037500000000001,25.037500000000001,20.787499999999998,11.75,20.137499999999999,8.2699999999999996,21.199999999999999,19.493749999999999,26.868749999999999,21.925000000000001,22.318750000000001]}},"geo":"geo","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>final presentation: 10 minutes at least 4 visualizations, at least one of which is a map</p>
 <p>map: choropleth color of state = percentage of smokers</p>
 
-<<<<<<< HEAD
-</section>
-=======
 </section></section>
->>>>>>> 2f6560b684d56d98e1a37ca781665883bdebc853
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
