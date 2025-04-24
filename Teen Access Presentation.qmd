@@ -75,7 +75,6 @@ State_Stats |>
   fmt_number(columns = AVERAGE, decimals = 1)
 
 ```
->>>>>>> 4930726c236b0d5f4d2dca519ebca205d3948de7
 
 data from above but as a choropleth: 
 
