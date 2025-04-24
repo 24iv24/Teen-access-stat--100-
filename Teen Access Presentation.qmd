@@ -64,7 +64,7 @@ ggplot( national_rates, aes(x=Year, y = national_average)) +
 ```{r}
 State_Stats <- Smoking |>
   group_by(State) |>
-  summarise(AVERAGE = mean(Smokes))
+  summarise(AVERAGE = mean(Smokes)) 
 
  tt(State_Stats, capiton = "Smokers by State", digits = 3)
 
