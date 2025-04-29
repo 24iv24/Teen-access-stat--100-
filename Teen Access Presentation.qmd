@@ -7,7 +7,11 @@ editor_options:
 ---
 
 # Introduction 
-According to the American Lung Association, cigarette smoking rates have fallen significantly for both adults and youth since the 1990s. Since 2002, there have been more former smokers than current smokers and more than half of cigarette smokers have quit. However, the National Institute of Health has found that the rate of e-cigarette use has increased from 1.5% in 2011 to 20.8% in 2018. Our goal of this project is to compare cigarette use to e-cigarette use in America. We aim to see what age groups smoking is the most popular as well as the health repercussions smokers face.
+- According to the American Lung Association, cigarette smoking rates have fallen significantly for both adults and youth since the 1990s. 
+ 
+ - However, the National Institute of Health has found that the rate of e-cigarette use has increased from 1.5% in 2011 to 20.8% in 2018. Our goal of this project is to compare cigarette use to e-cigarette use in America. 
+ 
+ - We aim to see what age groups smoking is the most popular as well as what type of tobacco product is most popular.
 
 
 ```{r}
@@ -76,9 +80,7 @@ State_Stats |>
 
 ```
 
-data from above but as a choropleth: 
-
-## choropleth
+## Choropleth
 
 ```{r}
 #| eval: FALSE
@@ -86,6 +88,7 @@ install.packages("usmap")
 install.packages("ggplot2")
 ```
 
+## Map of Smoking Rates by States
 
 ```{r}
 library(plotly)
@@ -110,10 +113,20 @@ plot_geo(state_data, locationmode = 'USA-states') %>%
 
 ```
 
-final presentation: 10 minutes
-at least 4 visualizations, at least one of which is a map
 
-map: choropleth color of state = percentage of smokers
+## Use of E-Cigarettes by High Schoolers
 
+```{r}
+Electronic_Data <- read_csv("Data - Sheet1.csv")
+
+ggplot(Electronic_Data, aes(x = Year, y = Percentage, fill = Year)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Use of E-Cigarettes by Highschoolers",
+    x = "Year",
+    y = "Percent"
+  ) +
+  theme_minimal()
+```
 
 
