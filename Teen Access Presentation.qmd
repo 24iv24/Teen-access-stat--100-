@@ -21,6 +21,7 @@ library(janitor)
 library(RColorBrewer)
 library(ggplot2)
 library(tinytable)
+
 ```
 
 
@@ -68,15 +69,26 @@ ggplot( national_rates, aes(x=Year, y = national_average)) +
 ## Average Percent of smokers by state
 
 ```{r}
-State_Stats <- Smoking |>
-  group_by(State) |>
-  summarise(AVERAGE = mean(Smokes)) 
 
-library(gt)
-State_Stats |> 
-  gt() |> 
-  tab_header(title = "Smokers by State") |> 
-  fmt_number(columns = AVERAGE, decimals = 1)
+SmokingComparison <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQpaipO6PCy05bqlnIa9tHQtVd_6XCx24IV1ZWkgXkKRDBlC1ZLj4sqXng6ely60kqjrKF1U9Pq_5qX/pub?output=csv",show_col_types = FALSE)
+
+Smoking_Difference <- SmokingComparison |>
+  group_by(Year) |>
+  summarize( TeenRate = c(`Smoking Rate(Teen)` ) / 1e8,
+             AdultRate = c( `Smoking Rate(Adult)` ) / 1e7 )
+
+Smoking_Difference$Difference <- Smoking_Difference$TeenRate - Smoking_Difference$AdultRate
+
+# make a decent table:
+tt(Smoking_Difference, 
+    caption = "Difference of Smoking Rates between Teens and Adults from 1995 to 2011", 
+    theme = "striped" )
+
+             
+
+
+
+
 
 ```
 
