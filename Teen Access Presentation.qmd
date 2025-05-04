@@ -21,6 +21,7 @@ library(janitor)
 library(RColorBrewer)
 library(ggplot2)
 library(tinytable)
+library(tidyr)
 
 ```
 
@@ -86,10 +87,6 @@ tt(Smoking_Difference,
 
              
 
-
-
-
-
 ```
 
 ## Choropleth
@@ -129,16 +126,41 @@ plot_geo(state_data, locationmode = 'USA-states') %>%
 ## Use of E-Cigarettes by High Schoolers
 
 ```{r}
-Electronic_Data <- read_csv("Data - Sheet1.csv")
+Electronic_Data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQgWlcmg0jQ88_JLaqI-E8_fjQFtMaZpilkSiOHRBjyV5UDGlAiSRtUQekIfrjMPzySf1yyUMCN2j3I/pub?output=csv")
 
-ggplot(Electronic_Data, aes(x = Year, y = Percentage, fill = Year)) +
-  geom_bar(stat = "identity") +
-  labs(
-    title = "Use of E-Cigarettes by Highschoolers",
-    x = "Year",
-    y = "Percent"
-  ) +
-  theme_minimal()
+ggplot(Electronic_Data, aes(x = Year, y = `Percent of Teens Smoking`)) + 
+  geom_line() + 
+  expand_limits( y = 0 ) +
+  theme( legend.position = "none")
 ```
 
+```{r}
+# Keep data starting at 2014
+teen_data_filtered <- Electronic_Data %>%
+  filter(Year >= 2014)
+
+Adult_Electronic_Data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQQL58TQVvSt4ymMtnNpKMs5jDNm63XYsULxwz4eclvkScSpqlEfbutoMv-QutQJY0WBNV0WdJ01QW3/pub?output=csv")
+
+# Merge These datasets and format them for a graph
+Combined_Electronic_Data <- left_join(Adult_Electronic_Data, Electronic_Data, by = "Year")
+
+Long_Electronic_Data <- pivot_longer(Combined_Electronic_Data, cols = c('Percent.of.Adults.Smoking', 'Percent of Teens Smoking'),
+                                     names_to = "Age",
+                                     values_to = "Rate")
+
+
+# Create a graph
+
+ggplot(Long_Electronic_Data, aes(x = Year, y = Rate, color = Age)) +
+  geom_line(size = 1.2) +
+  theme_minimal() +
+  labs(title = "Use of E-Cigarettes by Teens vs. Adults",
+       x = "Year",
+       y = "Rate of use",
+       color = "Age")
+                                              
+
+
+
+```
 
