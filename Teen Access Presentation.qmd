@@ -22,6 +22,10 @@ library(RColorBrewer)
 library(ggplot2)
 library(tinytable)
 library(tidyr)
+library(base)
+options( scipen = 999 )
+install.packages("ggrepel")
+library(ggrepel)
 
 ```
 
@@ -38,7 +42,8 @@ National <- data.frame(
 )
 
 long_data <- National %>%
-  pivot_longer(cols = -Year, names_to = "Category", values_to = "Value")
+  pivot_longer(cols = -Year, names_to = "Category", values_to = "Value") |>
+  mutate( Category = gsub( "_", " ", Category, fixed = TRUE))
 
 ggplot(long_data, aes(x = Category, y = Value, fill = Category)) +
   geom_bar(stat = "identity") +
@@ -47,7 +52,8 @@ ggplot(long_data, aes(x = Category, y = Value, fill = Category)) +
     x = "Category",
     y = "Percent"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme( legend.position = "none")
 ```
 
 
@@ -67,18 +73,56 @@ ggplot( national_rates, aes(x=Year, y = national_average)) +
   theme( legend.position = "none")
 ```
 
-## Average Percent of smokers by state
+```{r}
+#| eval: FALSE
+install.packages("usmap")
+install.packages("ggplot2")
+```
+
+## Percentage of People who smoke Cigarettes by State
+```{r}
+library(plotly)
+library(dplyr)
+
+Smoking_State <- Smoking |>
+  select(Year, State, Smokes) |>
+  filter(Year == 2010)
+
+
+state <- Smoking_State %>%
+  mutate(code = state.abb[match(State, state.name)]) 
+# Create interactive choropleth
+plot_geo(state, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~Smokes,
+    locations = ~code,
+    color = ~Smokes,
+    colors = 'Blues',
+    text = ~paste(State, "<br>Avg Smokers: ", round(Smokes, 1), "%"),
+    hoverinfo = "text"
+  ) %>%
+  layout(
+    title = "Average Percentage of Smokers by State (Interactive)",
+    geo = list(scope = 'usa')
+  )
+```
+
+
+
+## Difference in Cigarette Smoking Rates from 1995-2011: Adults vs. Teenagers
 
 ```{r}
 
 SmokingComparison <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQpaipO6PCy05bqlnIa9tHQtVd_6XCx24IV1ZWkgXkKRDBlC1ZLj4sqXng6ely60kqjrKF1U9Pq_5qX/pub?output=csv",show_col_types = FALSE)
 
 Smoking_Difference <- SmokingComparison |>
-  group_by(Year) |>
-  summarize( TeenRate = c(`Smoking Rate(Teen)` ) / 1e8,
-             AdultRate = c( `Smoking Rate(Adult)` ) / 1e7 )
+  rename( "Teen Rate" = `Smoking Rate(Teen)`,
+          "Adult Rate" = `Smoking Rate(Adult)` )
 
-Smoking_Difference$Difference <- Smoking_Difference$TeenRate - Smoking_Difference$AdultRate
+Smoking_Difference$Difference <- Smoking_Difference$`Teen Rate` - Smoking_Difference$`Adult Rate`
+
+Smoking_Difference <- Smoking_Difference |>
+  select(Year, `Adult Rate`, `Teen Rate`, Difference)
 
 # make a decent table:
 tt(Smoking_Difference, 
@@ -89,38 +133,6 @@ tt(Smoking_Difference,
 
 ```
 
-## Choropleth
-
-```{r}
-#| eval: FALSE
-install.packages("usmap")
-install.packages("ggplot2")
-```
-
-## Map of Smoking Rates by States
-
-```{r}
-library(plotly)
-library(dplyr)
-
-state_data <- State_Stats %>%
-  mutate(code = state.abb[match(State, state.name)]) 
-# Create interactive choropleth
-plot_geo(state_data, locationmode = 'USA-states') %>%
-  add_trace(
-    z = ~AVERAGE,
-    locations = ~code,
-    color = ~AVERAGE,
-    colors = 'Blues',
-    text = ~paste(State, "<br>Avg Smokers: ", round(AVERAGE, 1), "%"),
-    hoverinfo = "text"
-  ) %>%
-  layout(
-    title = "Average Percentage of Smokers by State (Interactive)",
-    geo = list(scope = 'usa')
-  )
-
-```
 
 
 ## Use of E-Cigarettes by High Schoolers
@@ -134,6 +146,7 @@ ggplot(Electronic_Data, aes(x = Year, y = `Percent of Teens Smoking`)) +
   theme( legend.position = "none")
 ```
 
+## Use of E-Cigarettes: Adults vs. Teenagers
 ```{r}
 # Keep data starting at 2014
 teen_data_filtered <- Electronic_Data %>%
@@ -154,7 +167,7 @@ Long_Electronic_Data <- pivot_longer(Combined_Electronic_Data, cols = c('Percent
 ggplot(Long_Electronic_Data, aes(x = Year, y = Rate, color = Age)) +
   geom_line(size = 1.2) +
   theme_minimal() +
-  labs(title = "Use of E-Cigarettes by Teens vs. Adults",
+  labs(
        x = "Year",
        y = "Rate of use",
        color = "Age")
@@ -164,3 +177,40 @@ ggplot(Long_Electronic_Data, aes(x = Year, y = Rate, color = Age)) +
 
 ```
 
+## Reasons Why Teenagers Use Cigarettes
+```{r}
+Reasons_Data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_sf7CZkwMIjI6rAtWKvqqHMvB850bZxVEPY5Gw4H8JHZ0vV7ibeoUmCw3U5UlMSXLxxtlBHbjzZrT/pub?output=csv")
+
+Reasons_Data <- data.frame(
+  Reason = c("Flavor(29%)", "Less Nicotine(25%)", "Social(47%)", "Stress Relief(21%)"),
+  Percent = c(29, 25, 47, 21)
+)
+
+ggplot(Reasons_Data, aes(x = "", y = Percent, fill = Reason)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) +
+  theme_void() +
+  geom_text(aes(label = Reason), position = position_stack(vjust = 0.5), color = "black", size = 2.5)
+  
+
+```
+
+## Findings
+- E-cigarettes have become more popular than traditonal cigarettes in the past 15 years.
+
+- The rise of E-Cigarettes in the 2010s have led to nicotine addiction rates for teens to stay relatively high.
+
+- Teenagers have typically used nicotine products at higher rates than adults, and are using e-cigarettes at much higher rates than adults are.
+
+- A large part of the reason that teenagers choose to use e-cigarettes is the appeal of the flavor as well as buying into common myths about e-cigarette use
+
+## Importance of Research 
+- While e-cigarettes are sometimes viewed as a safer alternative to cigarettes, they still pose significant health risks and are just as, if not more, addictive.
+
+- According to a report done by the Surgeon General, there are over 490,000 annual deaths attributed to smoking and second-hand smoke.
+
+- It is extremely important to understand how the trends of smoking have changed over time as well as how the product has changed.
+
+- It is also important to understand what demographics are being hit the hardest and what keeps them addicted.
+
+## Works Cited
