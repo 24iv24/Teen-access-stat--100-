@@ -11,7 +11,7 @@ editor_options:
  
  - However, the National Institute of Health has found that the rate of e-cigarette use has increased from 1.5% in 2011 to 20.8% in 2018. Our goal of this project is to compare cigarette use to e-cigarette use in America. 
  
- - We aim to see what age groups smoking is the most popular as well as what type of tobacco product is most popular.
+ - We aim to see how smoking in America has changed over time, how the type of product used has changed, as well as what age demographic smokes the most
 
 
 ```{r}
